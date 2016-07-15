@@ -1,0 +1,46 @@
+{
+  "name": "react-skeleton",
+  "version": "0.0.1",
+  "description": "for testing react",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinbrink/react-skeleton.git"
+  },
+  "keywords": [
+    "React",
+    "ES2015",
+    "Webpack",
+    "Babel",
+    "html-webpack-plugin"
+  ],
+  "author": "Dustin Brink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dustinbrink/react-skeleton/issues"
+  },
+  "homepage": "https://github.com/dustinbrink/react-skeleton#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "html-webpack-plugin": "^2.22.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "build": "webpack -d ",
+    "clean": "rm -rf public",
+    "watch": "webpack -d --watch --progress --colors",
+    "start": "webpack-dev-server --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stop-win": "taskkill /f /im node.exe"
+  },
+  "build": {
+    "template": "index.ejs",
+    "entry": "index.jsx"
+  }
+}
