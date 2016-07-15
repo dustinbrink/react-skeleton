@@ -17,11 +17,16 @@ const PATHS = {
 const FILES = {
 	entry: path.resolve(PATHS.app, CONFIG.build.entry),
 	template: path.resolve(PATHS.src, CONFIG.build.template),
-	bundle: '[name].bundle.'+CONFIG.version+'.js'
+	bundle: '[name].bundle.'+CONFIG.version+'.js',
+	styles: [
+		path.resolve(PATHS.app, CONFIG.build.style),
+		path.resolve(__dirname, 'node_modules', 'purecss')
+	]
 };
 
 const common = {
 	entry: {
+		style: FILES.styles,
 		app: PATHS.app,
 		vendor: Object.keys(CONFIG.dependencies)
 	},
@@ -79,8 +84,9 @@ switch(process.env.npm_lifecycle_event) {
 				name: 'vendor',
 				entries: ['react']
 			}),
-			parts.setupCSS(PATHS),
-			parts.minify()
+			parts.minify(),
+			parts.extractCSS(FILES.styles),
+			parts.purifyCSS([PATHS.app])
 		);
 		break;
 
@@ -99,6 +105,7 @@ switch(process.env.npm_lifecycle_event) {
 				entries: ['react']
 			}),
 			//parts.minify(),
+			parts.setupCSS(FILES.styles),
 			parts.devServer({
 				// Customize host/port here if needed
 				host: process.env.HOST,

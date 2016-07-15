@@ -2,6 +2,6 @@ body {
   background: cornsilk;
 }
 
-:local(.redButton) {
+.redButton {
   background: red;
 }
