@@ -66,7 +66,12 @@ switch(process.env.npm_lifecycle_event) {
 		webpackConfig = merge(
 			common,
 			{
-				devtool: 'source-map'
+				devtool: 'source-map',
+				output: {
+					path: PATHS.build,
+					filename: '[name].[chunkhash].js',
+					chunkFilename: '[chunkhas].js'
+				}
 			},
 			parts.setVariable('process.env.NODE_ENV', 'production'),
 			parts.extractBundle({
