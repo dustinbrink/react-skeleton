@@ -3,11 +3,14 @@ import {render} from 'react-dom';
 
 import AwesomeComponent from './AwesomeComponent.jsx';
 
+require('./main.css');
+
+
 class App extends React.Component {
 	render () {
 		return (
 			<div>
-				<p> Hello React!</p>
+				<p> Hello World!</p>
 				<AwesomeComponent />
 			</div>
 		);
