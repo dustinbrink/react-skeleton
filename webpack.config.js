@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const parts = require('./lib/parts');
@@ -47,7 +47,7 @@ const common = {
 		]
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
+		new HtmlPlugin({
 			title: CONFIG.name,
 			template: FILES.template,
 			minify: !ENV_DEV,
@@ -74,6 +74,7 @@ switch(process.env.npm_lifecycle_event) {
 				}
 			},
 			parts.setVariable('process.env.NODE_ENV', 'production'),
+			parts.clean(PATHS.build),
 			parts.extractBundle({
 				name: 'vendor',
 				entries: ['react']
@@ -92,11 +93,11 @@ switch(process.env.npm_lifecycle_event) {
 				//devtool: 'source-map'
 			},
 			parts.setVariable('process.env.NODE_ENV', 'development'),
+			parts.clean(PATHS.build),
 			parts.extractBundle({
 				name: 'vendor',
 				entries: ['react']
 			}),
-			parts.setupCSS(PATHS),
 			//parts.minify(),
 			parts.devServer({
 				// Customize host/port here if needed
