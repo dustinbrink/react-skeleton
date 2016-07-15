@@ -29,7 +29,9 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0",
+    "webpack-validator": "^2.2.2"
   },
   "scripts": {
     "build": "webpack -d ",
@@ -40,6 +42,9 @@
     "stop-win": "taskkill /f /im node.exe"
   },
   "build": {
+  	"src": "src",
+  	"app": "app",
+  	"dest": "public",
     "template": "index.ejs",
     "entry": "index.jsx"
   }

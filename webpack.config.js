@@ -1,25 +1,45 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var config = require("./package.json");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
+const validate = require('webpack-validator');
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
-var SRC_DIR = path.resolve(__dirname, 'src');
-var APP_DIR =  path.join(SRC_DIR, 'app');
-var ENV_DEV =  process.env.DEV || true;
 
-var webpackConfig = {
-	entry: path.join(APP_DIR, config.build.entry),
+const CONFIG = require("./package.json");
+const ENV_DEV =  process.env.DEV || true;
+
+
+const PATHS = {
+	build: path.resolve(__dirname, CONFIG.build.dest),
+	src: path.resolve(__dirname, CONFIG.build.src),
+	app: path.resolve(__dirname, CONFIG.build.src, CONFIG.build.app)
+};
+
+const FILES = {
+	entry: path.resolve(PATHS.app, CONFIG.build.entry),
+	template: path.resolve(PATHS.src, CONFIG.build.template),
+	bundle: CONFIG.name+'-bundle.'+CONFIG.version+'.js'
+};
+
+
+console.log(PATHS.build);
+console.log(PATHS.src);
+console.log(PATHS.app);
+
+const common = {
+	entry: {
+		app: FILES.entry
+	},
 	output: {
-		path: BUILD_DIR,
-		filename: config.name+'-bundle.'+config.version+'.js',
+		path: PATHS.build,
+		filename: FILES.bundle
 	},
 	module : {
 		loaders : [
 			{
 				test : /\.jsx$/,
 				loader: 'babel-loader',
-				include : APP_DIR,
+				include : PATHS.app,
 				exclude: /(node_modules|bower_components)/,
 				query: {
 					presets: ['es2015', 'react']
@@ -32,12 +52,23 @@ var webpackConfig = {
 			__DEV__: ENV_DEV,
 		}),
 		new HtmlWebpackPlugin({
-			title: config.name,
-			template: path.join(SRC_DIR, config.build.template),
+			title: CONFIG.name,
+			template: FILES.template,
 			minify: !ENV_DEV,
 			showErrors: ENV_DEV
 		})
 	]
-};
+}
 
-module.exports = webpackConfig;
+var webpackConfig;
+
+// Detect how npm is run and branch based on that
+switch(process.env.npm_lifecycle_event) {
+  case 'build':
+    webpackConfig = merge(common, {});
+    break;
+  default:
+    webpackConfig = merge(common, {});
+}
+
+module.exports = validate(webpackConfig);
