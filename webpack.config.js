@@ -61,13 +61,19 @@ const common = {
 	]
 }
 
+const bundleParts = {
+	name: 'vendor',
+	entries: ['react']
+};
+
 var webpackConfig;
 
 // Detect how npm is run and branch based on that
 switch(process.env.npm_lifecycle_event) {
-	
+
 	case 'build':
-		console.log('PRODUCTION BUILD!!!');
+	case 'stats':
+		process.env.NODE_ENV = 'production'
 		webpackConfig = merge(
 			common,
 			{
@@ -78,12 +84,9 @@ switch(process.env.npm_lifecycle_event) {
 					chunkFilename: '[chunkhas].js'
 				}
 			},
-			parts.setVariable('process.env.NODE_ENV', 'production'),
+			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
 			parts.clean(PATHS.build),
-			parts.extractBundle({
-				name: 'vendor',
-				entries: ['react']
-			}),
+			parts.extractBundle(bundleParts),
 			parts.minify(),
 			parts.extractCSS(FILES.styles),
 			parts.purifyCSS([PATHS.app])
@@ -91,20 +94,15 @@ switch(process.env.npm_lifecycle_event) {
 		break;
 
 	default: // Development
-		console.log('DEVELOPMENT BUILD!!!')
+		process.env.NODE_ENV = 'development'
+
 		webpackConfig = merge(
 			common,
 			{
 				devtool: 'eval-source-map'
-				//devtool: 'source-map'
 			},
-			parts.setVariable('process.env.NODE_ENV', 'development'),
-			parts.clean(PATHS.build),
-			parts.extractBundle({
-				name: 'vendor',
-				entries: ['react']
-			}),
-			//parts.minify(),
+			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
+			parts.extractBundle(bundleParts),
 			parts.setupCSS(FILES.styles),
 			parts.devServer({
 				// Customize host/port here if needed
@@ -114,4 +112,6 @@ switch(process.env.npm_lifecycle_event) {
 		);
 }
 
-module.exports = validate(webpackConfig);
+module.exports = validate(webpackConfig, {
+	quiet: true
+});
