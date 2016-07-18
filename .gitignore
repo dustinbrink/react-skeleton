@@ -6,3 +6,4 @@ public
 *.log
 .npm
 stats.json
+.eslintcache

@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
@@ -72,7 +71,8 @@ switch(process.env.npm_lifecycle_event) {
 			parts.html({
 				name: CONFIG.name,
 				template: FILES.template
-			})
+			}),
+			parts.eslint(PATHS.app)
 		);
 		break;
 
@@ -96,7 +96,8 @@ switch(process.env.npm_lifecycle_event) {
 				// Customize host/port here if needed
 				host: process.env.HOST,
 				port: process.env.PORT
-			})
+			}),
+			parts.eslint(PATHS.app)
 		);
 }
 
