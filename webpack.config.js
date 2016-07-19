@@ -1,51 +1,45 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
-const parts = require('./lib/parts');
+const parts = require('./lib/webpack.parts');
 
-const CONFIG = require('./package.json');
+const PKG = require('./package.json');
+const TARGET = process.env.npm_lifecycle_event;
+const ROOT_PATH = __dirname;
 
-
-const PATHS = {
-	build: path.resolve(__dirname, CONFIG.build.dest),
-	src: path.resolve(__dirname, CONFIG.build.src),
-	app: path.resolve(__dirname, CONFIG.build.src, CONFIG.build.app)
-};
-
-const FILES = {
-	entry: path.resolve(PATHS.app, CONFIG.build.entry),
-	template: path.resolve(PATHS.src, CONFIG.build.template),
-	bundle: '[name].bundle.'+CONFIG.version+'.js',
-	styles: [
-		path.resolve(PATHS.app, CONFIG.build.style),
-		path.resolve(__dirname, 'node_modules', 'purecss')
-	]
+const config = {
+	paths: {
+		src: path.resolve(ROOT_PATH, PKG.build.src),
+		dest: path.resolve(ROOT_PATH, PKG.build.dest)
+	},
+	files: {
+		styles: [
+			path.resolve(ROOT_PATH, PKG.build.src, PKG.build.style),
+			path.resolve(ROOT_PATH, 'node_modules', 'purecss')
+		]
+	},
+	bundle: '[name].bundle.'+PKG.version+'.js',
+	entryId: 'app'
 };
 
 const common = {
 	entry: {
-		style: FILES.styles,
-		app: PATHS.app,
-		vendor: Object.keys(CONFIG.dependencies)
+		style: config.files.styles,
+		app: config.paths.src,
+		vendor: Object.keys(PKG.dependencies)
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']
 	},
-	output: {
-		path: PATHS.build,
-		filename: FILES.bundle
+	stats: {
+		children: false
 	}
-};
-
-const bundleParts = {
-	name: 'vendor',
-	entries: ['react']
 };
 
 var webpackConfig;
 
 // Detect how npm is run and branch based on that
-switch(process.env.npm_lifecycle_event) {
+switch(TARGET) {
 
 	case 'build':
 	case 'stats':
@@ -56,23 +50,24 @@ switch(process.env.npm_lifecycle_event) {
 			{
 				devtool: 'source-map',
 				output: {
-					path: PATHS.build,
+					path: config.paths.dest,
 					filename: '[name].[chunkhash].js',
-					chunkFilename: '[chunkhas].js'
+					chunkFilename: '[chunkhash].js'
 				}
 			},
 			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
-			parts.clean(PATHS.build),
-			parts.babel(PATHS.app),
-			parts.extractBundle(bundleParts),
+			parts.clean(config.paths.dest),
+			parts.babel(config.paths.src),
+			parts.extractBundle(),
 			parts.minify(),
-			parts.extractCSS(FILES.styles),
-			parts.purifyCSS([PATHS.app]),
+			parts.extractCSS(config.files.styles),
+			parts.purifyCSS([config.paths.src]),
+			parts.stylelint(config.paths.src),
 			parts.html({
-				name: CONFIG.name,
-				template: FILES.template
+				name: PKG.name,
+				appId: config.entryId
 			}),
-			parts.eslint(PATHS.app)
+			parts.eslint(config.paths.src)
 		);
 		break;
 
@@ -82,22 +77,28 @@ switch(process.env.npm_lifecycle_event) {
 		webpackConfig = merge(
 			common,
 			{
-				devtool: 'eval-source-map'
+				devtool: 'eval-source-map',
+				output: {
+					path: config.paths.dest,
+					filename: config.bundle
+				}
 			},
 			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
-			parts.babel(PATHS.app),
-			parts.extractBundle(bundleParts),
-			parts.setupCSS(FILES.styles),
+			parts.babel(config.paths.src),
+			parts.extractBundle(),
+			parts.setupCSS(config.files.styles),
 			parts.html({
-				name: CONFIG.name,
-				template: FILES.template
+				name: PKG.name,
+				appId: config.entryId,
+				server: process.env.PORT
 			}),
 			parts.devServer({
 				// Customize host/port here if needed
 				host: process.env.HOST,
 				port: process.env.PORT
 			}),
-			parts.eslint(PATHS.app)
+			parts.stylelint(config.paths.src),
+			parts.eslint(config.paths.src)
 		);
 }
 
