@@ -30,11 +30,7 @@ const common = {
 		vendor: Object.keys(PKG.dependencies)
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx'],
-		alias: {
-			'react': 'react-lite',
-			'react-dom': 'react-lite'
-		}
+		extensions: ['', '.js', '.jsx']
 	},
 	stats: {
 		children: false
@@ -58,6 +54,12 @@ switch(TARGET) {
 					path: config.paths.dest,
 					filename: '[name].[chunkhash].js',
 					chunkFilename: '[chunkhash].js'
+				},
+				resolve: {
+					alias: {
+						'react': 'react-lite',
+						'react-dom': 'react-lite'
+					}
 				}
 			},
 			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
@@ -103,7 +105,8 @@ switch(TARGET) {
 				port: process.env.PORT
 			}),
 			parts.stylelint(config.paths.src),
-			parts.eslint(config.paths.src)
+			parts.eslint(config.paths.src),
+			parts.exposereact()
 		);
 }
 

@@ -3,6 +3,9 @@ import {render} from 'react-dom';
 
 import AwesomeComponent from './components/AwesomeComponent.jsx';
 
+if(process.env.NODE_ENV !== 'production') {
+	React.Perf = require('react-addons-perf');
+}
 
 class App extends React.Component {
 	render () {
