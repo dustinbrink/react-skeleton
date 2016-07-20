@@ -1,26 +1,35 @@
 {
-  "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "node": true,
-    "mocha": true,
-    "es6": true
-  },
-  "plugins": [
-    "react"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    }
-  },
-  "rules": {
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
-  }
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true,
+		"mocha": true,
+		"es6": true
+	},
+	"plugins": [
+		"react"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
+			"modules": true
+		}
+	},
+	"rules": {
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"indent": ["warn", "tab", { 
+			"SwitchCase": 1 
+		}],
+		"quotes": ["warn", "single"],
+		"no-magic-numbers": ["warn", {
+			"ignore": [1],
+			"ignoreArrayIndexes": true,
+			"enforceConst": true
+		}]
+	}
 }

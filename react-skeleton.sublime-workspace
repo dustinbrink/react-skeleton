@@ -1,0 +1,366 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"style",
+				"stylelint"
+			],
+			[
+				"failOn",
+				"failOnWarning"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2065,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "react-skeleton.sublime-project",
+			"settings":
+			{
+				"buffer_size": 180,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "linter",
+		"selected_items":
+		[
+			[
+				"linter",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"linter settings",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/cygwin64/home/dustin/react-skeleton"
+	],
+	"file_history":
+	[
+		"/C/cygwin64/home/dustin/react-skeleton/.eslintrc",
+		"/C/cygwin64/home/dustin/react-skeleton/webpack.config.js",
+		"/C/cygwin64/home/dustin/react-skeleton/lib/webpack.parts.js",
+		"/C/cygwin64/home/dustin/react-skeleton/src/main.css",
+		"/C/cygwin64/home/dustin/react-skeleton/.stylelintrc",
+		"/C/cygwin64/home/dustin/react-skeleton/package.json",
+		"/C/cygwin64/home/dustin/react-skeleton/public/style.97963a72537a16596cd1.css",
+		"/C/cygwin64/home/dustin/react-skeleton/src/app/main.css",
+		"/C/cygwin64/home/dustin/react-skeleton/src/index.ejs",
+		"/C/cygwin64/home/dustin/react-skeleton/src/index.jsx",
+		"/C/cygwin64/home/dustin/react-skeleton/src/app/index.jsx",
+		"/C/cygwin64/home/dustin/react-skeleton/public/index.html",
+		"/C/Users/dustin/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/cygwin64/home/dustin/react-skeleton/.gitignore",
+		"/C/cygwin64/home/dustin/react-skeleton/lib/parts.js",
+		"/C/cygwin64/home/dustin/react-skeleton/.eslintcache",
+		"/C/Users/dustin/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/70s.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Liked_From_Radio.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Kerbal.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Dustins_Favorites.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Dustins_Favorites.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Yo_La_Tengo.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Work.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Wedding.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Twin_Peaks-Roadhouse.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Twin_Peaks-Leland.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Soundtest2.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Soundtest1.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Relax.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Radiohead.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Pixies.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/No_Man_Sky.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/NIN.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Metal.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Kaitlynns.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Grunge.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Fallout.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Drive.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Dreamy.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Cooking.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/80s.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Bush.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/California.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/playlists/Classical.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Liked_From_Radio.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/No_Man_Sky.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/NIN.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Cooking.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Bush.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/California.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Relax.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Grunge.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Drive.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Yo_La_Tengo.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Dreamy.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Fallout.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/70s.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Metal.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Wedding.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Twin_Peaks-Leland.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Twin_Peaks-Roadhouse.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Radiohead.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Work.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Kaitlynns.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/80s.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Soundtest2.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Soundtest1.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Kerbal.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Opera.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Classical.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/Pixies.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/playlists/bush.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/bush.txt",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/bush_20160717114829.csv",
+		"/C/Users/dustin/Desktop/spotify-export-master/converted_playlists/bush_20160717114829.log",
+		"/C/Users/dustin/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/cygwin64/home/dustin/react-skeleton/stats.json",
+		"/C/Users/dustin/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/dustin/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\dustin\\Desktop\\spotify-export-master\\converted_playlists\\playlists"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"style",
+			",",
+			" -- ",
+			",",
+			"\"",
+			" -- ",
+			"[0-9]+\\.\\s",
+			":",
+			" -- ",
+			"^[0-9]+\\.\\s",
+			"^\\s+Progress+.*\\n",
+			"^\\s+Progress+.*",
+			"save",
+			"space"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"\\",
+			"",
+			"\\",
+			"",
+			"\\",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								201,
+								201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "react-skeleton.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 180,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								180,
+								180
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "react-skeleton.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 311.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

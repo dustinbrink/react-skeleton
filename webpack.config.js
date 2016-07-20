@@ -29,7 +29,11 @@ const common = {
 		vendor: Object.keys(PKG.dependencies)
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js', '.jsx'],
+		alias: {
+			'react': 'react-lite',
+			'react-dom': 'react-lite'
+		}
 	},
 	stats: {
 		children: false
