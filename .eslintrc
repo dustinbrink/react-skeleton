@@ -7,7 +7,8 @@
 		"es6": true
 	},
 	"plugins": [
-		"react"
+		"react",
+		"flowtype"
 	],
 	"extends": [
 		"eslint:recommended",
@@ -19,15 +20,26 @@
 			"modules": true
 		}
 	},
+	"settings": {
+		"flowtype": {
+			"onlyFilesWithFlowAnnotation": true
+		}
+	},
 	"rules": {
 		"react/jsx-uses-react": "error",
 		"react/jsx-uses-vars": "error",
+		"react/jsx-no-bind": "warn",
+		"flowtype/require-parameter-type": "error",
+		"flowtype/require-return-type": ["error", "always", {"annotateUndefined": "always"}],
+		"flowtype/space-after-type-colon": ["error", "always"],
+		"flowtype/space-before-type-colon": ["error", "never"],
+		"flowtype/type-id-match": ["error", "^([A-Z][a-z0-9]+)+Type$"],
 		"indent": ["warn", "tab", { 
 			"SwitchCase": 1 
 		}],
 		"quotes": ["warn", "single"],
 		"no-magic-numbers": ["warn", {
-			"ignore": [1],
+			"ignore": [0, 1],
 			"ignoreArrayIndexes": true,
 			"enforceConst": true
 		}]
