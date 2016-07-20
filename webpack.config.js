@@ -6,6 +6,7 @@ const parts = require('./lib/webpack.parts');
 const PKG = require('./package.json');
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = __dirname;
+process.env.BABEL_ENV = TARGET;
 
 const config = {
 	paths: {
