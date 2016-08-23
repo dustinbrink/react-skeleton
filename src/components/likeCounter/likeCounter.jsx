@@ -1,27 +1,41 @@
+
 import React from 'react';
+
+// Components
+import BaseComponent from '../BaseComponent.jsx';
 
 // Stylesheets
 require('./likeCounter.scss');
 
-class LikeCounter extends React.Component {
-	static defaultProps: { visited: boolean };
+class LikeCounter extends BaseComponent {
+	
+	static propTypes = {
+		count: React.PropTypes.number
+	};
+
+	static defaultProps = {
+		count: 1
+	};
 
 	constructor(props) {
 		super(props);
-		this.state = {likesCount : 0};
-		this.onLike = this.onLike.bind(this);
+		this.state = {
+			count: 0
+		};
+		this._bind('incrementCount');
 	}
 
-	onLike () {
-		let newLikesCount = this.state.likesCount + 1;
-		this.setState({likesCount: newLikesCount});
+	incrementCount() {
+		this.setState({
+			count: this.state.count + 1
+		});
 	}
 
 	render() {
 		return (
 			<div className="like-counter">
-				Likes : <span>{this.state.likesCount}</span>
-				<div><button onClick={this.onLike} className="pure-button">Like Me</button></div>
+				Likes : <span>{this.state.count}</span>
+				<div><button onClick={this.incrementCount} className="pure-button">Like Me</button></div>
 			</div>
 		);
 	}
