@@ -9,12 +9,15 @@ import { Link } from 'react-router'
 require('./siteHeader.scss');
 
 class SiteHeader extends BaseComponent {
+	static propTypes = {
+		nav: React.PropTypes.arrayOf(React.PropTypes.object)
+	};
 
 	render() {
 		return (
 			<div className="site-header">
-				<a href="#">Dustin Brink</a>
-				<MenuList items={['News', 'Sports', 'Finance']}/>
+				<Link to="/">Dustin Brink</Link>
+				<MenuList items={this.props.nav}/>
 			</div>
 		);
 	}
@@ -24,12 +27,16 @@ class SiteHeader extends BaseComponent {
 class MenuList extends BaseComponent {
 
 	static propTypes = {
-		items: React.PropTypes.arrayOf(React.PropTypes.string)
+		items: React.PropTypes.arrayOf(React.PropTypes.object)
+	};
+
+	static defaultProps = {
+		items: []
 	};
 
 	render() {
 		let items = this.props.items.map((item, i) => {
-			return <MenuItem text={item} key={i}/>;
+			return <MenuItem nav={item} key={i}/>;
 		});
 
 		return (
@@ -44,13 +51,13 @@ class MenuList extends BaseComponent {
 class MenuItem extends BaseComponent {
 
 	static propTypes = {
-		text: React.PropTypes.string.isRequired,
+		nav: React.PropTypes.object.isRequired,
 	};
 
 	render() {
 		return (
 			<li>
-				<Link to={this.props.text} >{this.props.text}</Link>
+				<Link to={this.props.nav.path} >{this.props.nav.text}</Link>
 			</li>
 		);
 	}

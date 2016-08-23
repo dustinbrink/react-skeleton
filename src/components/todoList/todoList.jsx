@@ -5,9 +5,9 @@ import React from 'react';
 import BaseComponent from '../BaseComponent.jsx';
 
 // Stylesheets
-require('./todo.scss');
+require('./todoList.scss');
 
-class Todo extends BaseComponent {
+class TodoList extends BaseComponent {
 	
 	render() {
 		return (
@@ -20,4 +20,4 @@ class Todo extends BaseComponent {
 }
 
 
-export default Todo;
+export default TodoList;
