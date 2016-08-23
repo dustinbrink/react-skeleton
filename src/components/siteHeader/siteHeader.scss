@@ -1,5 +1,24 @@
-@import '../../style/theme';
+@import 'src/style/theme';
+@import '~purecss-sass/vendor/assets/stylesheets/purecss/_menus';
 
 .site-header {
+	@extend .pure-menu;
+	@extend .pure-menu-horizontal;
 	background: $site_header_color;
+
+	a {
+		@extend .pure-menu-link;
+	}
+
+	> a {
+		@extend .pure-menu-heading;
+	}
+
+	ul {
+		@extend .pure-menu-list;
+	}
+
+	li {
+		@extend .pure-menu-item;
+	}
 }

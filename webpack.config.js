@@ -24,7 +24,7 @@ const config = {
 
 const common = {
 	entry: {
-		style: config.files.styles,
+		//style: config.files.styles,
 		app: config.paths.src,
 		vendor: Object.keys(PKG.dependencies)
 	},
@@ -67,7 +67,7 @@ switch(TARGET) {
 			parts.extractBundle(),
 			parts.minify(),
 			parts.extractSCSS(),
-			parts.extractCSS(config.files.styles),
+			//parts.extractCSS(config.files.styles),
 			parts.purifyCSS([config.paths.src]),
 			parts.stylelint(config.paths.src),
 			parts.html({
@@ -84,7 +84,7 @@ switch(TARGET) {
 		webpackConfig = merge(
 			common,
 			{
-				devtool: 'eval-source-map', //'#cheap-module-eval-source-map'
+				devtool: 'inline-source-map', //'#cheap-module-eval-source-map'
 				output: {
 					path: config.paths.dest,
 					filename: config.bundle
@@ -93,7 +93,7 @@ switch(TARGET) {
 			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
 			parts.babel(config.paths.src),
 			parts.extractBundle(),
-			parts.setupCSS(),
+			//parts.setupCSS(),
 			parts.setupSCSS(),
 			parts.html({
 				name: PKG.name,

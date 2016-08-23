@@ -1,7 +1,9 @@
-@import '../../style/theme';
+@import 'src/style/theme';
+@import '~purecss-sass/vendor/assets/stylesheets/purecss/_buttons';
 
 .like-counter {
 	button {
+		@extend .pure-button;
 		background: $button_color;
 	}
 }

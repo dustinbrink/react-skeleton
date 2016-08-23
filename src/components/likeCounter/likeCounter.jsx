@@ -22,10 +22,10 @@ class LikeCounter extends BaseComponent {
 		this.state = {
 			count: 0
 		};
-		this._bind('incrementCount');
+		this._bind('increment');
 	}
 
-	incrementCount() {
+	increment() {
 		this.setState({
 			count: this.state.count + 1
 		});
@@ -35,8 +35,23 @@ class LikeCounter extends BaseComponent {
 		return (
 			<div className="like-counter">
 				Likes : <span>{this.state.count}</span>
-				<div><button onClick={this.incrementCount} className="pure-button">Like Me</button></div>
+				<div><LikeButton onClick={this.increment} text="Like Me"/></div>
 			</div>
+		);
+	}
+
+}
+
+class LikeButton extends BaseComponent {
+
+	static propTypes = {
+		text: React.PropTypes.string.isRequired,
+		onClick: React.PropTypes.func.isRequired,
+	};
+
+	render() {
+		return (
+			<button onClick={this.props.onClick}>{this.props.text}</button>
 		);
 	}
 
