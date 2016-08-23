@@ -2,30 +2,25 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import AwesomeComponent from './components/AwesomeComponent.jsx';
-import TodoList from './components/TodoList.jsx';
+// Components
+import LikeCounter from './components/likeCounter/likeCounter.jsx';
+import SiteHeader from './components/siteHeader/siteHeader.jsx';
+
+// Stylesheets
+require('./index.scss');
 
 if(process.env.NODE_ENV !== 'production') {
 	React.Perf = require('react-addons-perf');
 }
 
-var todos = [
-	{
-		id: '1',
-		text: 'string',
-		completed: false
-	}
-];
 
 class App extends React.Component {
 	render (): React.Element {
 		return (
 			<div>
-				<p> Hello Dustin!</p>
-				<AwesomeComponent />
-				<TodoList 
-					todos={todos}
-				/>
+				<SiteHeader />
+				<p> Hello Dustin Brink!</p>
+				<LikeCounter />
 			</div>
 		);
 	}

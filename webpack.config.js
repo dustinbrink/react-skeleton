@@ -11,11 +11,10 @@ process.env.BABEL_ENV = TARGET;
 const config = {
 	paths: {
 		src: path.resolve(ROOT_PATH, PKG.build.src),
-		dest: path.resolve(ROOT_PATH, PKG.build.dest)
+		dest: path.resolve(ROOT_PATH, PKG.build.dest),
 	},
 	files: {
 		styles: [
-			path.resolve(ROOT_PATH, PKG.build.src, PKG.build.style),
 			path.resolve(ROOT_PATH, 'node_modules', 'purecss')
 		]
 	},
@@ -67,6 +66,7 @@ switch(TARGET) {
 			parts.babel(config.paths.src),
 			parts.extractBundle(),
 			parts.minify(),
+			parts.extractSCSS(),
 			parts.extractCSS(config.files.styles),
 			parts.purifyCSS([config.paths.src]),
 			parts.stylelint(config.paths.src),
@@ -84,7 +84,7 @@ switch(TARGET) {
 		webpackConfig = merge(
 			common,
 			{
-				devtool: 'eval-source-map',
+				devtool: 'eval-source-map', //'#cheap-module-eval-source-map'
 				output: {
 					path: config.paths.dest,
 					filename: config.bundle
@@ -93,7 +93,8 @@ switch(TARGET) {
 			parts.setVariable('process.env.NODE_ENV', process.env.NODE_ENV),
 			parts.babel(config.paths.src),
 			parts.extractBundle(),
-			parts.setupCSS(config.files.styles),
+			parts.setupCSS(),
+			parts.setupSCSS(),
 			parts.html({
 				name: PKG.name,
 				appId: config.entryId,
@@ -106,6 +107,7 @@ switch(TARGET) {
 			}),
 			parts.stylelint(config.paths.src),
 			parts.eslint(config.paths.src),
+			//parts.flow(),
 			parts.exposereact()
 		);
 }

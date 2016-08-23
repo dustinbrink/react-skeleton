@@ -1,8 +1,9 @@
 [ignore]
-.*/node_modules/*.
+.*\node_modules\.*
+.*/node_modules/.*
+.*/public/*.
 
 [include]
-.*/src/.*
 
 [libs]
 
